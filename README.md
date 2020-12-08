@@ -11,3 +11,37 @@ Notes about the book "Go Programming Language"
 package main the function main is also special — it’s where execution of the program begins.
 Whatever main does is what the program does.
 - Opening brackets `{` must go on the same line as the declaration that preceeds it for some particular tokens (e.g. : after `func` or `if` declaration)
+- `i++` is a statement, not an expression -> `j = i++` is illegal. _Check diff statement/expression ?_
+- **Variable declaration**
+```go
+s := ""
+var s string
+var s = ""
+var s string = ""
+```
+Why should you prefer one form to another? The first form, a short variable declaration, is
+the most compact, but it may be used only within a function, not for package-level variables.
+The second form relies on default initialization to the zero value for strings, which is "". The
+third form is rarely used except when declaring multiple variables. The fourth form is explicit
+about the variable’s type, which is redundant when it is the same as that of the initial value but
+necessary in other cases where they are not of the same type. In practice, you should generally
+use one of the first two forms, with explicit initialization to say that the initial value is
+important and implicit initialization to say that the initial value doesn’t matter.
+- **Reading files**
+  - https://pkg.go.dev/bufio#NewScanner : Read input and breaks it into lines or words. Call `Scan()` on return value to read a line and delete it. Scan returns false when no more lines to be read. Use `Text()` to get the content.
+  
+- Printf has overadozen such conversions, which Go programmers cal l verb s. This table is far
+from a complete specification but illustrates many of the features that are available:
+
+|verb       | type                                    |
+|-----------|-------------------------------------------
+| %d         | decimal integer                        |
+| %x, %o, %b | integer in hexadecimal, octal, binary  |
+| %f, %g, %e | floating-point number: 3.141593        |
+| %t         | boolean: true or false                 |
+| %c         | rune (Unicode code point)              |
+| %s         | string                                 |
+| %q         | quoted string "abc" or rune 'c'        |
+| %v         | any value in a natural format          |
+| %T         | type of any value                      |
+| %%         | literal percent sign (no operand)      |
