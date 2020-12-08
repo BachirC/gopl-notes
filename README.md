@@ -54,3 +54,22 @@ Why should you prefer one form to another? The first form, a short variable decl
 **Pointers**
   - Explicitly visible.
   - No pointers arithmetic.
+  
+## Structure
+
+**Declarations**
+- package-level declarations are visible throughout all files of the package.
+
+**Variables**
+- Omitting the type in variable declaration => takes type of initialization value.
+- Omitting the initialization value => Take 0 value of its type.
+
+| type | num |
+-------|-------
+| number | 0   |
+| boolean | false |
+| strings | "" |
+| interfaces and reference types | nil |
+| aggregate types | zero values of each element/field |
+
+- Package-level variables are initialized before main begins, and local variables are initialized as their declarations are encountered during function execution.
