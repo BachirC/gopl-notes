@@ -12,7 +12,7 @@ package main the function main is also special — it’s where execution of the
 Whatever main does is what the program does.
 - Opening brackets `{` must go on the same line as the declaration that preceeds it for some particular tokens (e.g. : after `func` or `if` declaration)
 - `i++` is a statement, not an expression -> `j = i++` is illegal. _Check diff statement/expression ?_
-- **Variable declaration**
+**Variable declaration**
 ```go
 s := ""
 var s string
@@ -27,11 +27,13 @@ about the variable’s type, which is redundant when it is the same as that of t
 necessary in other cases where they are not of the same type. In practice, you should generally
 use one of the first two forms, with explicit initialization to say that the initial value is
 important and implicit initialization to say that the initial value doesn’t matter.
-- **Reading files**
-  - https://pkg.go.dev/bufio#NewScanner : Read input and breaks it into lines or words. Call `Scan()` on return value to read a line and delete it. Scan returns false when no more lines to be read. Use `Text()` to get the content.
+**Reading files**
+  - (Stream) https://pkg.go.dev/bufio#NewScanner : Read input and breaks it into lines or words. Call `Scan()` on return value to read a line and delete it. Scan returns false when no more lines to be read. Use `Text()` to get the content.
+  - (One-go) https://pkg.go.dev/io/ioutil#ReadFile : Reads whole input in memory and returns it.
+  - (One-go) https://pkg.go.dev/io/ioutil#ReadAll : `ReadFile` but for any io.Reader.
+  - (Stream) https://pkg.go.dev/io#Copy : Copy content from dst to src.
   
-- Printf has overadozen such conversions, which Go programmers cal l verb s. This table is far
-from a complete specification but illustrates many of the features that are available:
+- Printf has overadozen such conversions, which Go programmers call verbs.
 
 |verb       | type                                    |
 |-----------|-------------------------------------------
@@ -45,3 +47,14 @@ from a complete specification but illustrates many of the features that are avai
 | %v         | any value in a natural format          |
 | %T         | type of any value                      |
 | %%         | literal percent sign (no operand)      |
+
+**Concurrency**
+- A goroutine is a concurrent function execution. A channel is a communication mechanism that allows one goroutine to pass values of a specified type to another goroutine.
+- When one goroutine attempts a send or receive on a channel, it blocks until another goroutine attempts the corresponding receive or send operation, at which point the value is transferred and both goroutines proceed.
+- https://pkg.go.dev/sync#Mutex : Mutex for goroutines.
+
+**Web server**
+- https://pkg.go.dev/net/http : std package for creating web servers.
+- https://pkg.go.dev/net/url#URL.Query : Get query params.
+
+- Pointers are explicitly visible, but pointer arithmetic is illegal.
