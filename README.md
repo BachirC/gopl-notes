@@ -73,3 +73,17 @@ Why should you prefer one form to another? The first form, a short variable decl
 | aggregate types | zero values of each element/field |
 
 - Package-level variables are initialized before main begins, and local variables are initialized as their declarations are encountered during function execution.
+- `new(T)` expression that creates an unnamed variable of type T initialized to the zero value and returns its address.
+
+**Type declaration**
+- Use
+
+```golang
+type Celsius float64
+type Fahrenheit float64
+```
+
+to avoid comparing two variables that have the same underlying type (here float64) but that represent two semantically different things (Celsius and Fahrenheit).
+
+- T(x) converts x to type T. A conversion from one type to another is allowed if both have the same underlying type, or if both are unnamed pointer types that point to variables of the same underlying type; these conversions change the type but not the representation of the value.
+- Conversions are also allowed between numeric types, and between string and some slice types, as we will see in the next chapter. These conversions may change the representation of the value (3.14 -> 3, string -> `[]byte` slice allocates a copy of the string data).
