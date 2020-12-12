@@ -87,3 +87,8 @@ to avoid comparing two variables that have the same underlying type (here float6
 
 - T(x) converts x to type T. A conversion from one type to another is allowed if both have the same underlying type, or if both are unnamed pointer types that point to variables of the same underlying type; these conversions change the type but not the representation of the value.
 - Conversions are also allowed between numeric types, and between string and some slice types, as we will see in the next chapter. These conversions may change the representation of the value (3.14 -> 3, string -> `[]byte` slice allocates a copy of the string data).
+
+**Imports**
+- Each package is uniquely identified by its **import path**.
+
+- How to use go.mod with local packages https://forum.golangbridge.org/t/cannot-use-custom-package/18226/4
