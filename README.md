@@ -90,5 +90,6 @@ to avoid comparing two variables that have the same underlying type (here float6
 
 **Imports**
 - Each package is uniquely identified by its **import path**.
-
 - How to use go.mod with local packages https://forum.golangbridge.org/t/cannot-use-custom-package/18226/4
+
+- `bytes` type is an alias of `uint8`.
