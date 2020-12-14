@@ -92,4 +92,10 @@ to avoid comparing two variables that have the same underlying type (here float6
 - Each package is uniquely identified by its **import path**.
 - How to use go.mod with local packages https://forum.golangbridge.org/t/cannot-use-custom-package/18226/4
 
+---
+
 - `bytes` type is an alias of `uint8`.
+
+**Scope**
+- A declaration associates a name with a program entity, such as a function or a variable. The scope of a declaration is the part of the source code where a use of the declared name refers to that declaration.
+- The scope of a declaration is a region of the program text; it is a compile-time property. The lifetime of a variable is the range of time during execution when the variable can be referred to by other parts of the program; it is a run-time property.
