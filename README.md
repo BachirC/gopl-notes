@@ -27,9 +27,6 @@ Whatever main does is what the program does.
 | %T         | type of any value                      |
 | %%         | literal percent sign (no operand)      |
 
-
-- `bytes` type is an alias of `uint8`.
-
 **Variable declaration**
 ```go
 s := ""
@@ -100,5 +97,25 @@ to avoid comparing two variables that have the same underlying type (here float6
 - A declaration associates a name with a program entity, such as a function or a variable. The scope of a declaration is the part of the source code where a use of the declared name refers to that declaration.
 - The scope of a declaration is a region of the program text; it is a compile-time property. The lifetime of a variable is the range of time during execution when the variable can be referred to by other parts of the program; it is a run-time property.
 - Lexical block : grouping of declarations that determine each declaration scope.
- - Explicit : surrounded by curly braces (`if`, `for` body)
- - Implicit : inferred (universe block = whole source code, package/file, if/for initialization clauses)
+  - Explicit : surrounded by curly braces (`if`, `for` body)
+  - Implicit : inferred (universe block = whole source code, package/file, if/for initialization clauses)
+
+## Basic data types
+
+**Integers**
+- `byte` is a synonym of `uint8` that emphasizes that the value is a piece of raw data rather than a small numeric quantity.
+- `rune` is a synonym of `int32` indicating that the value is a Unicode code point.
+- `int` and `uint` : 32 or 64bits, depending on the compiler.
+
+|
+------------------------------
+| * | / | % | << | >> | & | &^
+------------------------------
+| + | - | | | ^ |
+------------------------------
+| == | != | < | <= | > | >= |
+------------------------------
+| && |
+------------------------------
+| || |
+------------------------------
