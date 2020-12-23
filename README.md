@@ -106,16 +106,15 @@ to avoid comparing two variables that have the same underlying type (here float6
 - `byte` is a synonym of `uint8` that emphasizes that the value is a piece of raw data rather than a small numeric quantity.
 - `rune` is a synonym of `int32` indicating that the value is a Unicode code point.
 - `int` and `uint` : 32 or 64bits, depending on the compiler.
+- Binary operators in order of decreasing precedence :
 
-|
-------------------------------
-| * | / | % | << | >> | & | &^
-------------------------------
-| + | - | | | ^ |
-------------------------------
+| * | / | % | << | >> | & | &^ |
+----|---|---|----|----|---|----
+| + | - | \| | ^ |
 | == | != | < | <= | > | >= |
-------------------------------
 | && |
-------------------------------
-| || |
-------------------------------
+| \|\| |
+
+- All values of basic types are comparable (using == or !=).
+- Integers, floating-point numbers and strings are ordered (<, >, <= or >=).
+- Use unsigned integers unless specifically required not to.
